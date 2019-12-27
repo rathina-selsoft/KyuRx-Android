@@ -3,20 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_prescription">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.selsoft.kyurx.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" >
+        android:id="@+id/nav_prescription"
+        android:name="com.selsoft.kyurx.ui.main.prescription.PrescriptionFragment"
+        android:label="@string/manage_prescription"
+        tools:layout="@layout/fragment_prescription" >
     </fragment>
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.selsoft.kyurx.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_doctor"
+        android:name="com.selsoft.kyurx.ui.main.doctor.DoctorFragment"
+        android:label="@string/manage_doctor"
+        tools:layout="@layout/fragment_doctor" />
 
     <fragment
         android:id="@+id/nav_slideshow"
@@ -29,16 +29,4 @@
         android:name="com.selsoft.kyurx.ui.tools.ToolsFragment"
         android:label="@string/menu_tools"
         tools:layout="@layout/fragment_tools" />
-
-    <fragment
-        android:id="@+id/nav_share"
-        android:name="com.selsoft.kyurx.ui.share.ShareFragment"
-        android:label="@string/menu_share"
-        tools:layout="@layout/fragment_share" />
-
-    <fragment
-        android:id="@+id/nav_send"
-        android:name="com.selsoft.kyurx.ui.send.SendFragment"
-        android:label="@string/menu_send"
-        tools:layout="@layout/fragment_send" />
 </navigation>

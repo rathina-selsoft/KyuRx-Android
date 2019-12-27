@@ -26,4 +26,7 @@
     <string name="save">Save</string>
     <string name="doctor_name">Doctor Name</string>
     <string name="specialist">Specialist</string>
+    <string name="user_name">User Name</string>
+    <string name="manage_prescription">Manage Prescription</string>
+    <string name="manage_doctor">Manage Doctor</string>
 </resources>
