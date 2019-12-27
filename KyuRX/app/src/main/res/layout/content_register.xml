@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".ui.login.RegisterActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txt_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:text="@string/register"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_20sdp"
+            android:textStyle="bold"
+            tools:ignore="ContentDescription,SpUsage" />
+
+        <EditText
+            android:id="@+id/org_name"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_below="@id/txt_register"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:background="@drawable/email_bg"
+            android:hint="Org. Name"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingLeft="@dimen/activity_margin_half"
+            android:paddingRight="@dimen/activity_margin_half"
+            android:textColor="@color/primary_text"
+            android:textColorHint="@color/secondary_text"
+            android:textSize="@dimen/primary_title_size"
+            tools:ignore="HardcodedText,SpUsage" />
+
+        <EditText
+            android:id="@+id/org_email"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_below="@id/org_name"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:background="@drawable/email_bg"
+            android:hint="Email or UserName"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:paddingLeft="@dimen/activity_margin_half"
+            android:paddingRight="@dimen/activity_margin_half"
+            android:textColor="@color/primary_text"
+            android:textColorHint="@color/secondary_text"
+            android:textSize="@dimen/primary_title_size"
+            tools:ignore="HardcodedText,SpUsage" />
+
+        <com.scottyab.showhidepasswordedittext.ShowHidePasswordEditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_below="@+id/org_email"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:background="@drawable/email_bg"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:paddingLeft="@dimen/activity_margin_half"
+            android:paddingRight="@dimen/activity_margin_half"
+            android:textColor="@color/primary_text"
+            android:textColorHint="@color/secondary_text"
+            android:textSize="@dimen/primary_title_size"
+            app:additionalTouchTargetSize="@dimen/_50sdp"
+            app:drawable_hide="@drawable/ic_visibility_off_black_24dp"
+            app:drawable_show="@drawable/ic_visibility_black_24dp"
+            app:tint_color="@color/secondary_text"
+            tools:ignore="HardcodedText,SpUsage" />
+
+        <View
+            android:id="@+id/doctor_div"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@id/password"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:background="@color/white" />
+
+        <RelativeLayout
+            android:id="@+id/doctor_count"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/doctor_div"
+            android:layout_marginTop="@dimen/activity_horizontal_margin">
+
+            <TextView
+                android:id="@+id/txt_doctor_count"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                android:gravity="center"
+                android:text="Doctor Count: 0"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_18sdp"
+                android:textStyle="bold"
+                android:visibility="visible"
+                tools:ignore="HardcodedText,SpUsage" />
+
+            <LinearLayout
+                android:id="@+id/ly_doctor_count"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/org_doctors"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Org. Doctors"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_17sdp"
+                    android:textStyle="bold"
+                    android:visibility="visible"
+                    tools:ignore="HardcodedText,SpUsage" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_doctor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_horizontal_margin" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btn_register"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_below="@id/doctor_count"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:layout_marginBottom="@dimen/_50sdp"
+            android:background="@drawable/btn_bg_white"
+            android:elevation="@dimen/_5sdp"
+            android:gravity="center"
+            android:text="@string/register"
+            android:textColor="@color/white"
+            android:textSize="@dimen/h5"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,SpUsage,UnusedAttribute" />
+
+    </RelativeLayout>
+</ScrollView>
+

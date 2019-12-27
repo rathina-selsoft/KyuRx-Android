@@ -16,5 +16,14 @@
     <string name="welcome_to_kyurx">Welcome to KyuRX</string>
     <string name="login">Login</string>
     <string name="forget_password">Forget Password?</string>
-    <string name="register">Register or Sign Up</string>
+    <string name="register_signup">Register or Sign Up</string>
+    <string name="register">Register</string>
+    <string name="add_doctor">Add Doctor</string>
+    <string name="dr_name">Dr. Name</string>
+    <string name="email">Email</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="doctor_name">Doctor Name</string>
+    <string name="specialist">Specialist</string>
 </resources>

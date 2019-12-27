@@ -6,7 +6,9 @@ import android.content.Context
 import android.text.TextUtils
 import android.util.Log
 import android.util.Patterns
+import android.view.View
 import android.widget.Toast
+import com.google.android.material.snackbar.Snackbar
 import com.selsoft.kyurx.model.User
 
 class Utils {
@@ -47,6 +49,11 @@ class Utils {
         fun showToast(context: Context, message: String) : Toast {
             val toast = Toast.makeText(context, message, Toast.LENGTH_LONG)
             return toast
+        }
+
+        fun showSnackBar(view: View, message: String) : Snackbar{
+            val snack = Snackbar.make(view, message, Snackbar.LENGTH_LONG)
+            return snack
         }
     }
 }

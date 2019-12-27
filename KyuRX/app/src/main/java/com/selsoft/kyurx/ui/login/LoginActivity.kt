@@ -2,6 +2,7 @@ package com.selsoft.kyurx.ui.login
 
 import android.app.ProgressDialog
 import android.content.Context
+import android.content.Intent
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,6 +12,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import butterknife.BindView
 import butterknife.ButterKnife
+import butterknife.OnClick
 import com.selsoft.kyurx.R
 import com.selsoft.kyurx.utils.FontUtils
 import com.selsoft.kyurx.utils.SessionManager
@@ -52,6 +54,12 @@ class LoginActivity : AppCompatActivity() {
         sessionManager = SessionManager(this)
         progressDialog = Utils.getProgDialog(this)
         context = this
+    }
+
+    @OnClick(R.id.register)
+    fun moveToRegister() {
+        context.startActivity(Intent(context, RegisterActivity::class.java))
+        finish()
     }
 
     private fun setFontStyle() {
