@@ -35,7 +35,7 @@ class DoctorAdapter(
 
         val doctor: Doctor = doctors[position]
 
-        holder.doctorRow.tag = doctor
+//        holder.doctorRow.tag = doctor
         holder.doctorName.text = "Dr. ${doctor.firstName.toString()}"
         holder.specialist.text = doctor.emailId
 
@@ -49,10 +49,10 @@ class DoctorAdapter(
 
     class DoctorViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        @BindView(R.id.ly_doctor_row)
-        lateinit var doctorRow: LinearLayout
+//        @BindView(R.id.ly_doctor_row)
+//        lateinit var doctorRow: LinearLayout
 
-        @BindView(R.id.doctor_name)
+        @BindView(R.id.dr_name)
         lateinit var doctorName: TextView
 
         @BindView(R.id.dr_specialist)

@@ -1,5 +1,6 @@
 package com.selsoft.kyurx.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -11,9 +12,13 @@ import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
+import android.widget.TextView
 import butterknife.BindView
 import butterknife.ButterKnife
 import com.selsoft.kyurx.R
+import com.selsoft.kyurx.ui.login.LoginActivity
+import com.selsoft.kyurx.utils.FontUtils
+import com.selsoft.kyurx.utils.Utils
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,6 +32,7 @@ class MainActivity : AppCompatActivity() {
 
     @BindView(R.id.nav_view)
     lateinit var navView: NavigationView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +52,11 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        if (Utils.user == null) {
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

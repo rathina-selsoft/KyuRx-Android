@@ -31,4 +31,10 @@
     <string name="manage_doctor">Manage Doctor</string>
     <string name="manage_patient">Manage Patient</string>
     <string name="manage_user">Manage User</string>
+    <string name="no_patient_available">No Patient Available</string>
+    <string name="add_patient">Add Patient</string>
+    <string name="patient_name">Patient Name</string>
+    <string name="email_id">Email Id</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
 </resources>

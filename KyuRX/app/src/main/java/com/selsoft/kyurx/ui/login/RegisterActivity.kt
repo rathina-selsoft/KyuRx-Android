@@ -99,6 +99,9 @@ class RegisterActivity : AppCompatActivity() {
             doctors.add(doctor)
             getDoctorsViews()
             alertDialog.dismiss()
+
+            val message = Utils.showSnackBar(view, "Doctor Added")
+            message.show()
         }
 
         cancelBtn.setOnClickListener {

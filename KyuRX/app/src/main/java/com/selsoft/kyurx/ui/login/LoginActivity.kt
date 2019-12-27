@@ -6,6 +6,7 @@ import android.content.Intent
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
@@ -14,6 +15,8 @@ import butterknife.BindView
 import butterknife.ButterKnife
 import butterknife.OnClick
 import com.selsoft.kyurx.R
+import com.selsoft.kyurx.model.User
+import com.selsoft.kyurx.ui.main.MainActivity
 import com.selsoft.kyurx.utils.FontUtils
 import com.selsoft.kyurx.utils.SessionManager
 import com.selsoft.kyurx.utils.Utils
@@ -54,6 +57,17 @@ class LoginActivity : AppCompatActivity() {
         sessionManager = SessionManager(this)
         progressDialog = Utils.getProgDialog(this)
         context = this
+    }
+
+    @OnClick(R.id.btn_login)
+    fun loginTapped(view: View) {
+        val user = User()
+        user.email = userEmail.text.toString()
+        user.phoneNumber = password.text.toString()
+
+        Utils.user = user
+        startActivity(Intent(this, MainActivity::class.java))
+        finish()
     }
 
     @OnClick(R.id.register)
