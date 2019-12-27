@@ -49,7 +49,7 @@ class RegisterActivity : AppCompatActivity() {
     lateinit var doctorsCountLy: LinearLayout
 
     @BindView(R.id.add_doctor)
-    lateinit var addDoctorIcon: FloatingActionButton
+    lateinit var addDoctorIcon: TextView
 
     @BindView(R.id.org_doctors)
     lateinit var orgDoctors: TextView

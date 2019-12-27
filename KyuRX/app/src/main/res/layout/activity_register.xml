@@ -9,14 +9,21 @@
 
     <include layout="@layout/content_register" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <TextView
         android:id="@+id/add_doctor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        android:tint="@color/white"
-        app:srcCompat="@drawable/ic_add"
-        tools:ignore="VectorDrawableCompat" />
+        android:layout_gravity="right|bottom"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+        android:background="@drawable/circle_background"
+        android:elevation="@dimen/_10sdp"
+        android:gravity="center"
+        android:text="@string/add_doctor"
+        android:textColor="#FFF"
+        android:textSize="@dimen/primary_text_size"
+        android:textStyle="bold"
+        tools:ignore="RtlHardcoded,SpUsage,UnusedAttribute" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

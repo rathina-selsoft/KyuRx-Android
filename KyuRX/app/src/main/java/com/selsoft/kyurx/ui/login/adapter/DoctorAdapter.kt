@@ -1,5 +1,6 @@
 package com.selsoft.kyurx.ui.login.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Typeface
 import android.view.LayoutInflater
@@ -29,12 +30,14 @@ class DoctorAdapter(
         return doctors.size
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: DoctorViewHolder, position: Int) {
 
         val doctor: Doctor = doctors[position]
 
         holder.doctorRow.tag = doctor
-        holder.doctorName.text = doctor.firstName.toString()
+        holder.doctorName.text = "Dr. ${doctor.firstName.toString()}"
+        holder.specialist.text = doctor.emailId
 
         val primary: Typeface = FontUtils.getPrimaryFont(context)
         val boldFont: Typeface = FontUtils.getPrimaryBoldFont(context)
