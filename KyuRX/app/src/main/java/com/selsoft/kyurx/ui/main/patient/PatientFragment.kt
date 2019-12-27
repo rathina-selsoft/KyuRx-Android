@@ -60,6 +60,7 @@ class PatientFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         getPatientsViews()
+        patientAdapter.notifyDataSetChanged()
     }
 
     @OnClick(R.id.add_patient)
@@ -88,8 +89,7 @@ class PatientFragment : Fragment() {
             getPatientsViews()
             alertDialog.dismiss()
 
-            val message = Utils.showSnackBar(view, "Patient Added")
-            message.show()
+            patientAdapter.notifyDataSetChanged()
         }
 
         cancelBtn.setOnClickListener {
