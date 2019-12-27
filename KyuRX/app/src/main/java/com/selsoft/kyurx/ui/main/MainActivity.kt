@@ -40,8 +40,8 @@ class MainActivity : AppCompatActivity() {
             setOf(
                 R.id.nav_prescription,
                 R.id.nav_doctor,
-                R.id.nav_slideshow,
-                R.id.nav_tools
+                R.id.nav_patient,
+                R.id.nav_user
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

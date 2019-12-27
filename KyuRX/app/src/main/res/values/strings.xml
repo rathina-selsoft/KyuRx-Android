@@ -29,4 +29,6 @@
     <string name="user_name">User Name</string>
     <string name="manage_prescription">Manage Prescription</string>
     <string name="manage_doctor">Manage Doctor</string>
+    <string name="manage_patient">Manage Patient</string>
+    <string name="manage_user">Manage User</string>
 </resources>
