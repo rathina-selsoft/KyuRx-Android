@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#3fa69a</color>
+    <color name="colorPrimaryDark">#1f827e</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="profile">#4bb3ab</color>
+    <color name="promotion">#054e5e</color>
+    <color name="history">#a71565</color>
+    <color name="favorite">#e40067</color>
+    <color name="rewards">#f15b5b</color>
+
+    <color name="black">#000</color>
+    <color name="white">#FFF</color>
+    <color name="un_select_white">#e6e0e0</color>
+    <color name="translucent_white">#CCffffff</color>
+
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#757575</color>
+    <color name="view">#a6a5a5</color>
+    <color name="white_ok">#4DFFFFFF</color>
+    <color name="menu_white">#4DFFFFFF</color>
+
+</resources>
