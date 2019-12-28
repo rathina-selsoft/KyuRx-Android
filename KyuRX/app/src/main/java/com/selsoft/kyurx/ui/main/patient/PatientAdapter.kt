@@ -1,5 +1,6 @@
 package com.selsoft.kyurx.ui.main.patient
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Typeface
 import android.view.LayoutInflater
@@ -29,6 +30,7 @@ class PatientAdapter(
         return patients.size
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: PatientViewHolder, position: Int) {
 
         val patient: Patient = patients[position]

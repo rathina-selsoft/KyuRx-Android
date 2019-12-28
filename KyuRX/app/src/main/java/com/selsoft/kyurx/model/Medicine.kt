@@ -1,13 +1,13 @@
 package com.selsoft.kyurx.model
 
 class Medicine {
-    private val medicineId = 0
-    private val name: String? = null
-    private val code: String? = null
-    private val barCode: String? = null
-    private val rate = 0
-    private val buyingRate = 0
-    private val sellingRate = 0
-    private val createdAt: Long = 0
-    private val updatedAt: Long = 0
+    var medicineId = 0
+    var name: String? = null
+    var code: String? = null
+    var barCode: String? = null
+    var rate = 0
+    var buyingRate = 0
+    var sellingRate = 0
+    var createdAt: Long = 0
+    var updatedAt: Long = 0
 }
