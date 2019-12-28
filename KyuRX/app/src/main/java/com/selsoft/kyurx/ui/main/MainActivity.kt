@@ -12,12 +12,14 @@ import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
+import android.view.View
 import android.widget.TextView
 import butterknife.BindView
 import butterknife.ButterKnife
 import com.selsoft.kyurx.R
 import com.selsoft.kyurx.ui.login.LoginActivity
 import com.selsoft.kyurx.utils.FontUtils
+import com.selsoft.kyurx.utils.SessionManager
 import com.selsoft.kyurx.utils.Utils
 
 class MainActivity : AppCompatActivity() {
@@ -53,9 +55,18 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        if (Utils.user == null) {
+        val sessionManager = SessionManager(this)
+        Utils.user = sessionManager.getUserDetails()
+
+        if (Utils.user?.email == null) {
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
+        } else {
+
+            val navHeaderView: View = navView.getHeaderView(0)
+            val userEmail = navHeaderView.findViewById(R.id.email) as TextView
+            userEmail.text = Utils.user!!.email
+            userEmail.typeface = FontUtils.getPrimaryBoldFont(this)
         }
     }
 

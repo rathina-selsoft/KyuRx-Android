@@ -65,7 +65,8 @@ class LoginActivity : AppCompatActivity() {
         user.email = userEmail.text.toString()
         user.phoneNumber = password.text.toString()
 
-        Utils.user = user
+        val sessionManager = SessionManager(this)
+        sessionManager.setUserDetails(user)
         startActivity(Intent(this, MainActivity::class.java))
         finish()
     }
