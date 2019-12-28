@@ -38,4 +38,10 @@
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="medicine_count">Medicine Count</string>
+    <string name="select_doctor">Select Doctor:</string>
+    <string name="select_patient">Select Patient:</string>
+    <string name="add_prescriptions">Add Prescriptions</string>
+    <string name="prescription_details">Prescription Details:</string>
+    <string name="no_medicine_added">No Medicine Added</string>
+    <string name="send_to_kyurx">Send to KyuRX</string>
 </resources>

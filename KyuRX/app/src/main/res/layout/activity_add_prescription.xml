@@ -4,7 +4,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.add_prescription.AddPrescription">
+    tools:context=".ui.login.RegisterActivity">
 
+
+    <include layout="@layout/content_add_prescription" />
+
+    <TextView
+        android:id="@+id/btn_add_prescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|bottom"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+        android:background="@drawable/background_prescription"
+        android:elevation="@dimen/_10sdp"
+        android:gravity="center"
+        android:text="@string/add_prescriptions"
+        android:textColor="#FFF"
+        android:textSize="@dimen/primary_text_size"
+        android:textStyle="bold"
+        tools:ignore="RtlHardcoded,SpUsage,UnusedAttribute" />
+
+    <TextView
+        android:id="@+id/btn_send_kyurx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|bottom"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+        android:background="@drawable/background_prescription"
+        android:elevation="@dimen/_10sdp"
+        android:gravity="center"
+        android:text="@string/send_to_kyurx"
+        android:textColor="#FFF"
+        android:textSize="@dimen/primary_text_size"
+        android:textStyle="bold"
+        tools:ignore="RtlHardcoded,SpUsage,UnusedAttribute" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

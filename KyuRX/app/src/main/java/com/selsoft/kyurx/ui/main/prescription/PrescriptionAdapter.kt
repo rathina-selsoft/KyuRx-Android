@@ -33,7 +33,7 @@ class PrescriptionAdapter(
     override fun onBindViewHolder(holder: PrescriptionViewHolder, position: Int) {
         val prescription: Prescription = prescriptions[position]
 
-        holder.prescriptionLY.tag = prescription
+//        holder.prescriptionLY.tag = prescription
         holder.medicineCount.text = "${prescription.medicines.size}"
         holder.patientName.text =
             "${prescription.patient?.firstName} ${prescription.patient?.lastName}"
@@ -52,8 +52,8 @@ class PrescriptionAdapter(
 
     class PrescriptionViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        @BindView(R.id.ly_prescription)
-        lateinit var prescriptionLY: LinearLayout
+//        @BindView(R.id.ly_prescription)
+//        lateinit var prescriptionLY: LinearLayout
 
         @BindView(R.id.medicine_count)
         lateinit var medicineCount: TextView
