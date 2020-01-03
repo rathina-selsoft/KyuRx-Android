@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/ly_patient_row"
+    android:id="@+id/ly_medicine_row"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="?android:attr/selectableItemBackground"
@@ -22,7 +22,7 @@
             android:layout_width="@dimen/_60sdp"
             android:layout_height="@dimen/_60sdp"
             android:gravity="center"
-            android:src="@drawable/ic_account_circle"
+            android:src="@drawable/ic_local_hospital"
             android:tint="@color/colorPrimary"
             tools:ignore="ContentDescription" />
 
@@ -36,32 +36,33 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/full_name"
+                android:id="@+id/medicine_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="@dimen/primary_text_size"
                 android:textStyle="bold"
                 tools:ignore="SpUsage"
-                tools:text="@string/patient_name" />
+                tools:text="Dolo 650 MG Tablet" />
 
             <TextView
-                android:id="@+id/email"
+                android:id="@+id/quantity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="@dimen/primary_sub_text_size"
                 tools:ignore="SpUsage"
-                tools:text="@string/email" />
+                tools:text="6" />
 
             <TextView
-                android:id="@+id/phone"
+                android:id="@+id/dosage_instruction"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="@dimen/primary_sub_text_size"
                 tools:ignore="SpUsage"
-                tools:text="@string/phone_number" />
+                android:singleLine="true"
+                tools:text="This medicine should be used with caution in patients"/>
 
         </LinearLayout>
 

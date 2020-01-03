@@ -47,6 +47,7 @@
             android:layout_marginLeft="@dimen/_18sdp"
             android:layout_marginTop="@dimen/activity_margin_half"
             android:layout_marginRight="@dimen/_18sdp"
+            android:background="?android:attr/selectableItemBackground"
             android:orientation="horizontal">
 
             <ImageView
@@ -67,20 +68,20 @@
                     android:id="@+id/dr_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="Click here to choose the Doctor"
                     android:textColor="@color/colorPrimary"
                     android:textSize="@dimen/primary_text_size"
                     android:textStyle="bold"
-                    tools:ignore="SpUsage"
-                    android:text="Click here to choose the Doctor" />
+                    tools:ignore="SpUsage" />
 
                 <TextView
                     android:id="@+id/dr_specialist"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="Doctor Specialist"
                     android:textColor="@color/primary_text"
                     android:textSize="@dimen/primary_sub_text_size"
-                    tools:ignore="SpUsage"
-                    android:text="Doctor Specialist" />
+                    tools:ignore="SpUsage" />
 
             </LinearLayout>
 
@@ -115,6 +116,7 @@
             android:layout_marginLeft="@dimen/_18sdp"
             android:layout_marginTop="@dimen/activity_margin_half"
             android:layout_marginRight="@dimen/_18sdp"
+            android:background="?android:attr/selectableItemBackground"
             android:orientation="horizontal">
 
             <ImageView
@@ -135,20 +137,20 @@
                     android:id="@+id/patient_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="Click here to choose the Patient"
                     android:textColor="@color/colorPrimary"
                     android:textSize="@dimen/primary_text_size"
                     android:textStyle="bold"
-                    tools:ignore="SpUsage"
-                    android:text="Click here to choose the Patient" />
+                    tools:ignore="SpUsage" />
 
                 <TextView
                     android:id="@+id/patient_email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="09/08/1994"
                     android:textColor="@color/primary_text"
                     android:textSize="@dimen/primary_sub_text_size"
-                    tools:ignore="SpUsage"
-                    android:text="09/08/1994" />
+                    tools:ignore="SpUsage" />
 
             </LinearLayout>
 

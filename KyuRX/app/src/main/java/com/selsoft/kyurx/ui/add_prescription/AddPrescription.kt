@@ -2,10 +2,11 @@ package com.selsoft.kyurx.ui.add_prescription
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
+import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.EditText
+import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -14,8 +15,10 @@ import butterknife.ButterKnife
 import butterknife.OnClick
 import com.selsoft.kyurx.R
 import com.selsoft.kyurx.model.Doctor
+import com.selsoft.kyurx.model.Medicine
 import com.selsoft.kyurx.model.Patient
 import com.selsoft.kyurx.utils.FontUtils
+import com.selsoft.kyurx.utils.Utils
 
 class AddPrescription : AppCompatActivity(), View.OnClickListener {
 
@@ -30,7 +33,6 @@ class AddPrescription : AppCompatActivity(), View.OnClickListener {
 
     @BindView(R.id.dr_specialist)
     lateinit var drSpecialist: TextView
-
 
     @BindView(R.id.txt_select_patient)
     lateinit var selectPatient: TextView
@@ -59,6 +61,9 @@ class AddPrescription : AppCompatActivity(), View.OnClickListener {
     lateinit var selectedDoctor: Doctor
     lateinit var selectedPatient: Patient
     lateinit var doctorPatientDialog: AlertDialog
+    var medicines: MutableList<Medicine> = ArrayList<Medicine>()
+    lateinit var medicineAdapter: MedicineAdapter
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,6 +77,12 @@ class AddPrescription : AppCompatActivity(), View.OnClickListener {
         actionBar.setDisplayHomeAsUpEnabled(true)
 
         setFontStyle()
+
+        medicineRV.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+
+        medicineAdapter = MedicineAdapter(this, medicines)
+        medicineRV.adapter = medicineAdapter
     }
 
     @SuppressLint("InflateParams", "SetTextI18n")
@@ -102,26 +113,6 @@ class AddPrescription : AppCompatActivity(), View.OnClickListener {
 
     }
 
-    private fun getDoctors(): MutableList<*> {
-        val doctors: MutableList<Doctor> = ArrayList<Doctor>()
-        for (x in 0..8) {
-            val doctor = Doctor()
-            if (x % 2 == 0) {
-                doctor.firstName = "Pushban"
-                doctor.lastName = "Rajaiyan"
-                doctor.emailId = "pushban@selsoftinc.com"
-                doctor.specialist = "ENT"
-            } else {
-                doctor.firstName = "Ramesh"
-                doctor.lastName = "Rajaiyan"
-                doctor.emailId = "ramesh@selsoftinc.com"
-                doctor.specialist = "Dentist"
-            }
-            doctors.add(doctor)
-        }
-        return doctors
-    }
-
     @SuppressLint("SetTextI18n", "InflateParams")
     @OnClick(R.id.choose_patient)
     fun choosePatient(view: View) {
@@ -145,6 +136,84 @@ class AddPrescription : AppCompatActivity(), View.OnClickListener {
 
         doctorPatientDialog.show()
     }
+
+    @OnClick(R.id.btn_add_prescription)
+    fun addPrescription() {
+        val addPrescriptionDialog = AlertDialog.Builder(this)
+        val addPrescriptionView = this.layoutInflater.inflate(R.layout.add_medicine, null)
+        addPrescriptionDialog.setView(addPrescriptionView)
+        val prescriptionDialog = addPrescriptionDialog.create()
+
+        val addPrescriptionTxt = addPrescriptionView.findViewById(R.id.add_prescription) as TextView
+        val medicineName = addPrescriptionView.findViewById(R.id.medicine_name) as TextView
+        val quantity = addPrescriptionView.findViewById(R.id.quantity) as TextView
+        val dosageInstruction =
+            addPrescriptionView.findViewById(R.id.dosage_instruction) as TextView
+
+        val saveBtn = addPrescriptionView.findViewById(R.id.btn_save) as Button
+        val cancelBtn = addPrescriptionView.findViewById(R.id.btn_cancel) as Button
+
+        val primary: Typeface = FontUtils.getPrimaryBoldFont(this)
+        val boldFont: Typeface = FontUtils.getPrimaryBoldFont(this)
+
+        saveBtn.setOnClickListener {
+
+            val medicine = Medicine()
+            medicine.name = medicineName.text.toString()
+            medicine.quantity = Utils.stringToInt(quantity.text.toString())
+            medicine.dosageInstruction = dosageInstruction.text.toString()
+
+            medicines.add(medicine)
+            getMedicinesViews()
+            prescriptionDialog.dismiss()
+            medicineAdapter.notifyDataSetChanged()
+        }
+
+        cancelBtn.setOnClickListener {
+            prescriptionDialog.dismiss()
+        }
+
+        addPrescriptionTxt.typeface = boldFont
+        medicineName.typeface = primary
+        quantity.typeface = primary
+        dosageInstruction.typeface = primary
+
+        saveBtn.typeface = boldFont
+        cancelBtn.typeface = boldFont
+
+        prescriptionDialog.show()
+    }
+
+    private fun getMedicinesViews() {
+        if (medicines.size == 0) {
+            medicineAvailable.visibility = View.VISIBLE
+            medicineRV.visibility = View.GONE
+        } else {
+            medicineAvailable.visibility = View.GONE
+            medicineRV.visibility = View.VISIBLE
+        }
+    }
+
+    private fun getDoctors(): MutableList<*> {
+        val doctors: MutableList<Doctor> = ArrayList<Doctor>()
+        for (x in 0..8) {
+            val doctor = Doctor()
+            if (x % 2 == 0) {
+                doctor.firstName = "Pushban"
+                doctor.lastName = "Rajaiyan"
+                doctor.emailId = "pushban@selsoftinc.com"
+                doctor.specialist = "ENT"
+            } else {
+                doctor.firstName = "Ramesh"
+                doctor.lastName = "Rajaiyan"
+                doctor.emailId = "ramesh@selsoftinc.com"
+                doctor.specialist = "Dentist"
+            }
+            doctors.add(doctor)
+        }
+        return doctors
+    }
+
 
     private fun getPatients(): MutableList<*> {
         val patients: MutableList<Patient> = ArrayList<Patient>()

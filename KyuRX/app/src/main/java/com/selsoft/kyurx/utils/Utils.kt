@@ -12,7 +12,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.selsoft.kyurx.model.User
 
 class Utils {
-    companion object{
+    companion object {
 
         var user: User? = null
         var token: String? = null
@@ -46,14 +46,22 @@ class Utils {
         }
 
         @SuppressLint("ShowToast")
-        fun showToast(context: Context, message: String) : Toast {
+        fun showToast(context: Context, message: String): Toast {
             val toast = Toast.makeText(context, message, Toast.LENGTH_LONG)
             return toast
         }
 
-        fun showSnackBar(view: View, message: String) : Snackbar{
+        fun showSnackBar(view: View, message: String): Snackbar {
             val snack = Snackbar.make(view, message, Snackbar.LENGTH_LONG)
             return snack
+        }
+
+        fun stringToInt(number: String): Int {
+            if (number == "" || number == "null") {
+                return 0
+            } else {
+                return number.toInt()
+            }
         }
     }
 }

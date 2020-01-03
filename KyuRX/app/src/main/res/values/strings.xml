@@ -45,4 +45,8 @@
     <string name="no_medicine_added">No Medicine Added</string>
     <string name="send_to_kyurx">Send to KyuRX</string>
     <string name="choose_doctor">Choose Doctor</string>
+    <string name="add_prescription">Add Prescription</string>
+    <string name="medicine_name">Medicine Name</string>
+    <string name="quantity">Quantity</string>
+    <string name="dosage_instructions">Dosage Instructions</string>
 </resources>
