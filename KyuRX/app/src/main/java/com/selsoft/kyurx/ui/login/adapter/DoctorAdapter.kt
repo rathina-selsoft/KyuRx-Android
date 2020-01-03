@@ -14,6 +14,7 @@ import butterknife.ButterKnife
 import com.selsoft.kyurx.R
 import com.selsoft.kyurx.model.Doctor
 import com.selsoft.kyurx.utils.FontUtils
+import org.jetbrains.annotations.Nullable
 
 class DoctorAdapter(
     private val context: Context,
@@ -35,7 +36,7 @@ class DoctorAdapter(
 
         val doctor: Doctor = doctors[position]
 
-//        holder.doctorRow.tag = doctor
+        holder.doctorRow.tag = doctor
         holder.doctorName.text = "Dr. ${doctor.firstName.toString()}"
         holder.specialist.text = doctor.emailId
 
@@ -49,18 +50,15 @@ class DoctorAdapter(
 
     class DoctorViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-//        @BindView(R.id.ly_doctor_row)
-//        lateinit var doctorRow: LinearLayout
-
-        @BindView(R.id.dr_name)
-        lateinit var doctorName: TextView
-
-        @BindView(R.id.dr_specialist)
-        lateinit var specialist: TextView
+        var doctorRow: LinearLayout
+        var doctorName: TextView
+        var specialist: TextView
 
 
         init {
-            ButterKnife.bind(this, view)
+            doctorRow = itemView.findViewById(R.id.ly_doctor_row)
+            doctorName = itemView.findViewById(R.id.dr_name)
+            specialist = itemView.findViewById(R.id.dr_specialist)
         }
 
     }

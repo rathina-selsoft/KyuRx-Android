@@ -15,15 +15,23 @@ import butterknife.ButterKnife
 import com.selsoft.kyurx.R
 import com.selsoft.kyurx.model.Patient
 import com.selsoft.kyurx.utils.FontUtils
+import org.jetbrains.annotations.Nullable
 
 class PatientAdapter(
     var context: Context,
     var patients: MutableList<Patient>
 ) : RecyclerView.Adapter<PatientAdapter.PatientViewHolder>() {
 
+    lateinit var onClickListener: View.OnClickListener
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PatientViewHolder {
         val v = LayoutInflater.from(context).inflate(R.layout.patient_row, parent, false)
+        v.setOnClickListener(onClickListener)
         return PatientViewHolder(v)
+    }
+
+    fun setClickListener(onClickListener: View.OnClickListener) {
+        this.onClickListener = onClickListener
     }
 
     override fun getItemCount(): Int {
@@ -49,25 +57,21 @@ class PatientAdapter(
 
     }
 
-    class PatientViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+    class PatientViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        @BindView(R.id.ly_patient_row)
-        lateinit var patientRow: LinearLayout
 
-        @BindView(R.id.profile_image)
-        lateinit var profileImage: ImageView
-
-        @BindView(R.id.full_name)
-        lateinit var fullName: TextView
-
-        @BindView(R.id.email)
-        lateinit var email: TextView
-
-        @BindView(R.id.phone)
-        lateinit var phoneNumber: TextView
+        var patientRow: LinearLayout
+        var profileImage: ImageView
+        var fullName: TextView
+        var email: TextView
+        var phoneNumber: TextView
 
         init {
-            ButterKnife.bind(this, itemView)
+            patientRow = itemView.findViewById(R.id.ly_patient_row)
+            profileImage = itemView.findViewById(R.id.profile_image)
+            fullName = itemView.findViewById(R.id.full_name)
+            email = itemView.findViewById(R.id.email)
+            phoneNumber = itemView.findViewById(R.id.phone)
         }
 
     }

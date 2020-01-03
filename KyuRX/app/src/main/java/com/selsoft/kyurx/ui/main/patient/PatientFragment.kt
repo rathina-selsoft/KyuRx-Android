@@ -1,5 +1,6 @@
 package com.selsoft.kyurx.ui.main.patient
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
 import android.graphics.Typeface
@@ -18,12 +19,11 @@ import butterknife.ButterKnife
 import butterknife.OnClick
 import com.selsoft.kyurx.R
 import com.selsoft.kyurx.model.Patient
-import com.selsoft.kyurx.ui.login.adapter.DoctorAdapter
 import com.selsoft.kyurx.ui.main.MainActivity
 import com.selsoft.kyurx.utils.FontUtils
 import com.selsoft.kyurx.utils.Utils
 
-class PatientFragment : Fragment() {
+class PatientFragment : Fragment(), View.OnClickListener {
 
     private lateinit var activity: MainActivity
 
@@ -36,12 +36,14 @@ class PatientFragment : Fragment() {
     var patients: MutableList<Patient> = ArrayList()
     lateinit var patientAdapter: PatientAdapter
 
+    lateinit var root: View
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_patient, container, false)
+        root = inflater.inflate(R.layout.fragment_patient, container, false)
         ButterKnife.bind(this, root)
 
         val boldFont: Typeface = FontUtils.getPrimaryBoldFont(activity)
@@ -51,6 +53,7 @@ class PatientFragment : Fragment() {
             LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
 
         patientAdapter = PatientAdapter(activity, patients)
+        patientAdapter.setClickListener(this)
         patientRV.adapter = patientAdapter
 
         getPatientsViews()
@@ -65,6 +68,11 @@ class PatientFragment : Fragment() {
 
     @OnClick(R.id.add_patient)
     fun addPatient(view: View) {
+        showAddPatientDialog(null)
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun showAddPatientDialog(selectedPatient: Patient?) {
         val addPatientDialog = AlertDialog.Builder(activity)
         val addPatientView = this.layoutInflater.inflate(R.layout.add_patient_view, null)
         addPatientDialog.setView(addPatientView)
@@ -78,17 +86,39 @@ class PatientFragment : Fragment() {
         val saveBtn = addPatientView.findViewById(R.id.btn_save) as Button
         val cancelBtn = addPatientView.findViewById(R.id.btn_cancel) as Button
 
-        saveBtn.setOnClickListener {
-            val patient = Patient()
-            patient.firstName = firstName.text.toString()
-            patient.lastName = lastName.text.toString()
-            patient.emailId = emailId.text.toString()
-            patient.phoneNumber = phoneNumber.text.toString()
+        if (selectedPatient == null) {
+            saveBtn.text = "Save"
+        } else {
+            addPatientTxt.text = "Update Patient"
+            firstName.setText(selectedPatient.firstName)
+            lastName.setText(selectedPatient.lastName)
+            emailId.setText(selectedPatient.emailId)
+            phoneNumber.setText(selectedPatient.phoneNumber)
+            saveBtn.text = "Update"
+        }
 
-            patients.add(patient)
+        saveBtn.setOnClickListener {
+            if (selectedPatient == null) {
+                val patient = Patient()
+                patient.firstName = firstName.text.toString()
+                patient.lastName = lastName.text.toString()
+                patient.emailId = emailId.text.toString()
+                patient.phoneNumber = phoneNumber.text.toString()
+
+                patients.add(patient)
+
+            } else {
+                selectedPatient.firstName = firstName.text.toString()
+                selectedPatient.lastName = lastName.text.toString()
+                selectedPatient.emailId = emailId.text.toString()
+                selectedPatient.phoneNumber = phoneNumber.text.toString()
+
+                val snackbar = Utils.showSnackBar(root, "Patient Updated")
+                snackbar.show()
+            }
+
             getPatientsViews()
             alertDialog.dismiss()
-
             patientAdapter.notifyDataSetChanged()
         }
 
@@ -124,5 +154,10 @@ class PatientFragment : Fragment() {
     override fun onAttach(context: Context?) {
         super.onAttach(context)
         activity = context as MainActivity
+    }
+
+    override fun onClick(adapterView: View?) {
+        val patient: Patient = adapterView?.tag as Patient
+        showAddPatientDialog(patient)
     }
 }
