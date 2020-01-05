@@ -5,6 +5,11 @@
 
     <dist:module dist:instant="true" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,7 +17,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.add_prescription.AddPrescription"></activity>
+        <activity android:name=".ui.splash.Welcome"></activity>
+        <activity android:name=".ui.splash.Splash" />
+        <activity
+            android:name=".ui.login.PatientRegister"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ui.add_prescription.AddPrescription" />
         <activity
             android:name=".ui.login.RegisterActivity"
             android:theme="@style/AppTheme.NoActionBar" />

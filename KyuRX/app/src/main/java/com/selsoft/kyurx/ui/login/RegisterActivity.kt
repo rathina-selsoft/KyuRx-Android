@@ -4,14 +4,12 @@ import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.ProgressDialog
 import android.content.Context
+import android.content.Intent
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.LinearLayout
-import android.widget.TextView
+import android.widget.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import butterknife.BindView
@@ -53,6 +51,9 @@ class RegisterActivity : AppCompatActivity() {
 
     @BindView(R.id.org_doctors)
     lateinit var orgDoctors: TextView
+
+    @BindView(R.id.btn_register)
+    lateinit var registerBtn: Button
 
     lateinit var progressDialog: ProgressDialog
     lateinit var sessionManager: SessionManager
@@ -124,6 +125,37 @@ class RegisterActivity : AppCompatActivity() {
 
     }
 
+    @OnClick(R.id.btn_register)
+    fun registerTapped(view: View) {
+        val agreementDialog = AlertDialog.Builder(this)
+        val agreementView = this.layoutInflater.inflate(R.layout.agreement_dialog, null)
+        agreementDialog.setView(agreementView)
+        val agreementAlertDialog = agreementDialog.create()
+
+        val agreementTxt = agreementView.findViewById(R.id.txt_agreement) as TextView
+        val agreement = agreementView.findViewById(R.id.agreement) as TextView
+        val serviceCB = agreementView.findViewById(R.id.cb_service) as CheckBox
+        val registerBtn = agreementView.findViewById(R.id.btn_register) as Button
+
+        val primary: Typeface = FontUtils.getPrimaryBoldFont(this)
+        val boldFont: Typeface = FontUtils.getPrimaryBoldFont(this)
+
+        registerBtn.typeface = boldFont
+        serviceCB.typeface = primary
+        agreement.typeface = primary
+        agreementTxt.typeface = boldFont
+
+        registerBtn.setOnClickListener {
+            if (serviceCB.isChecked) {
+                agreementAlertDialog.dismiss()
+                context.startActivity(Intent(context, LoginActivity::class.java))
+                finish()
+            }
+        }
+
+        agreementAlertDialog.show()
+    }
+
 
     override fun onResume() {
         super.onResume()
@@ -149,6 +181,7 @@ class RegisterActivity : AppCompatActivity() {
         val boldFont: Typeface = FontUtils.getPrimaryBoldFont(this)
 
         registerTxt.typeface = boldFont
+        registerBtn.typeface = boldFont
         orgName.typeface = primary
         orgEmail.typeface = primary
         password.typeface = primary

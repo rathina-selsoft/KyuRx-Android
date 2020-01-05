@@ -49,4 +49,15 @@
     <string name="medicine_name">Medicine Name</string>
     <string name="quantity">Quantity</string>
     <string name="dosage_instructions">Dosage Instructions</string>
+    <string name="agreement">Agreement</string>
+    <string name="agreement_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nibh venenatis cras sed felis eget velit aliquet. Vitae auctor eu augue ut. Faucibus in ornare quam viverra orci sagittis eu volutpat odio. Viverra justo nec ultrices dui. Quis varius quam quisque id. Erat pellentesque adipiscing commodo elit at. In ante metus dictum at tempor commodo ullamcorper a. Egestas sed sed risus pretium quam vulputate dignissim suspendisse. A arcu cursus vitae congue mauris rhoncus. Quam adipiscing vitae proin sagittis nisl. Non odio euismod lacinia at quis risus sed. Vitae ultricies leo integer malesuada nunc vel. Ut tristique et egestas quis ipsum. Nibh tellus molestie nunc non blandit massa enim nec. Nunc sed id semper risus in hendrerit gravida rutrum. Viverra aliquet eget sit amet tellus. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras.
+
+\n \n Felis eget velit aliquet sagittis id consectetur purus. Lectus magna fringilla urna porttitor rhoncus dolor. Condimentum id venenatis a condimentum vitae sapien. Aenean euismod elementum nisi quis eleifend quam. Fringilla ut morbi tincidunt augue. Nunc sed augue lacus viverra. Quam pellentesque nec nam aliquam sem. Volutpat sed cras ornare arcu dui vivamus. Et ligula ullamcorper malesuada proin libero. Blandit aliquam etiam erat velit scelerisque in. Laoreet id donec ultrices tincidunt arcu non sodales neque sodales. Viverra ipsum nunc aliquet bibendum enim facilisis gravida neque convallis. Egestas integer eget aliquet nibh praesent tristique magna.
+
+</string>
+    <string name="i_agree_to_the_terms_of_service">I agree to the terms of service</string>
+    <string name="account_creation">Account Creation</string>
+    <string name="text_allowed">Text Allowed</string>
+    <string name="upload_id_proof">Upload ID Proof:</string>
+    <string name="insurance">Insurance:</string>
 </resources>
