@@ -70,4 +70,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="auto_bid">Auto Bid</string>
+    <string name="selsoft_pharmacy">Selsoft Pharmacy</string>
+    <string name="address">Address:</string>
+    <string name="auto_bit_details">Auto Bit Details</string>
+    <string name="confirm">Confirm</string>
 </resources>

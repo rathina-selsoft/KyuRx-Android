@@ -73,7 +73,7 @@ class LoginActivity : AppCompatActivity() {
 
     @OnClick(R.id.register)
     fun moveToRegister() {
-        context.startActivity(Intent(context, PatientRegister::class.java))
+        context.startActivity(Intent(context, RegisterActivity::class.java))
         finish()
     }
 

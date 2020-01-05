@@ -1,6 +1,7 @@
 package com.selsoft.kyurx.ui.main.medicine_status
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.content.Context
 import android.graphics.Typeface
 import android.view.LayoutInflater
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.selsoft.kyurx.R
 import com.selsoft.kyurx.model.Prescription
 import com.selsoft.kyurx.utils.FontUtils
+import com.selsoft.kyurx.utils.Utils
 
 class MedicineStatusAdapter(
     private val context: Context,
@@ -33,11 +35,13 @@ class MedicineStatusAdapter(
 
         val prescription: Prescription = prescriptions[position]
         holder.prescriptionLY.tag = prescription
+        holder.autoBit.tag = prescription
         holder.medicineCount.text = "${prescription.medicines.size}"
         holder.orgName.text = prescription.orgName
         holder.drName.text =
             "DR. ${prescription.doctor?.firstName} ${prescription.doctor?.lastName}"
         holder.createdDate.text = prescription.createdDate
+        holder.autoBit.setOnClickListener(autoBitTapped)
 
         val primary: Typeface = FontUtils.getPrimaryFont(context)
         val boldFont: Typeface = FontUtils.getPrimaryBoldFont(context)
@@ -48,6 +52,15 @@ class MedicineStatusAdapter(
         holder.medicineCount.typeface = boldFont
         holder.medicineCountTxt.typeface = boldFont
         holder.autoBitTxt.typeface = boldFont
+    }
+
+    val autoBitTapped: View.OnClickListener = View.OnClickListener {
+        val prescription = it.tag as Prescription
+        val addPrescriptionDialog = AlertDialog.Builder(context)
+        val addPrescriptionView = LayoutInflater.from(context).inflate(R.layout.auto_bit_dialog, null)
+        addPrescriptionDialog.setView(addPrescriptionView)
+        val prescriptionDialog = addPrescriptionDialog.create()
+        prescriptionDialog.show()
     }
 
     class MedicineStatusViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
