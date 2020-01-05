@@ -60,4 +60,14 @@
     <string name="text_allowed">Text Allowed</string>
     <string name="upload_id_proof">Upload ID Proof:</string>
     <string name="insurance">Insurance:</string>
+    <string name="doctor_portal">Doctor Portal</string>
+    <string name="patient_portal">Patient Portal</string>
+    <string name="title_activity_patient_main">PatientMain</string>
+    <string name="medicine_status">Medicine Status</string>
+    <string name="pharmacy_preference">Pharmacy Preference</string>
+    <string name="dashboard">Dashboard</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="auto_bid">Auto Bid</string>
 </resources>

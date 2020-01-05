@@ -50,4 +50,16 @@ class SessionManager(private val context: Context) {
         return user
     }
 
+    fun selectedPortal(portalName: String) {
+        @SuppressLint("CommitPrefEdits")
+        val editor = context.getSharedPreferences("KyuRX Data", Context.MODE_PRIVATE).edit()
+        editor.putString("portalName", portalName)
+        editor.apply()
+    }
+
+    fun getPortalName(): String? {
+        val prefs = context.getSharedPreferences("KyuRX Data", Context.MODE_PRIVATE)
+        return prefs.getString("portalName", null)
+    }
+
 }

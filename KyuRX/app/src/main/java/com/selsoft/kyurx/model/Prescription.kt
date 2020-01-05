@@ -9,6 +9,7 @@ class Prescription {
     var doctor: Doctor? = null
     var medicines: MutableList<Medicine> = ArrayList()
     var createdDate: String? = null
+    var orgName: String? = null
 
 
 }

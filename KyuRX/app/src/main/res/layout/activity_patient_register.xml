@@ -285,7 +285,7 @@
             android:background="@drawable/btn_bg_white"
             android:elevation="@dimen/_5sdp"
             android:gravity="center"
-            android:text="@string/register"
+            android:text="Continue"
             android:textColor="@color/white"
             android:textSize="@dimen/h5"
             android:textStyle="bold"

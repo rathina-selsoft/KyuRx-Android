@@ -1,12 +1,18 @@
 package com.selsoft.kyurx.ui.login
 
+import android.app.AlertDialog
+import android.content.Context
+import android.content.Intent
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.*
 import butterknife.BindView
 import butterknife.ButterKnife
+import butterknife.OnClick
 import com.selsoft.kyurx.R
+import com.selsoft.kyurx.ui.main.PatientMain
 import com.selsoft.kyurx.utils.FontUtils
 
 class PatientRegister : AppCompatActivity() {
@@ -56,12 +62,46 @@ class PatientRegister : AppCompatActivity() {
     @BindView(R.id.btn_register)
     lateinit var registerBtn: Button
 
+    lateinit var context: Context
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_patient_register)
         ButterKnife.bind(this)
 
         setFontStyle()
+        context = this
+    }
+
+    @OnClick(R.id.btn_register)
+    fun registerTapped(view: View) {
+        val agreementDialog = AlertDialog.Builder(this)
+        val agreementView = this.layoutInflater.inflate(R.layout.agreement_dialog, null)
+        agreementDialog.setView(agreementView)
+        val agreementAlertDialog = agreementDialog.create()
+
+        val agreementTxt = agreementView.findViewById(R.id.txt_agreement) as TextView
+        val agreement = agreementView.findViewById(R.id.agreement) as TextView
+        val serviceCB = agreementView.findViewById(R.id.cb_service) as CheckBox
+        val registerBtn = agreementView.findViewById(R.id.btn_register) as Button
+
+        val primary: Typeface = FontUtils.getPrimaryBoldFont(this)
+        val boldFont: Typeface = FontUtils.getPrimaryBoldFont(this)
+
+        registerBtn.typeface = boldFont
+        serviceCB.typeface = primary
+        agreement.typeface = primary
+        agreementTxt.typeface = boldFont
+
+        registerBtn.setOnClickListener {
+            if (serviceCB.isChecked) {
+                agreementAlertDialog.dismiss()
+                context.startActivity(Intent(context, PatientMain::class.java))
+                finish()
+            }
+        }
+
+        agreementAlertDialog.show()
     }
 
     private fun setFontStyle() {
