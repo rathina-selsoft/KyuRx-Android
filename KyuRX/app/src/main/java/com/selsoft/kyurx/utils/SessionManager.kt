@@ -62,4 +62,16 @@ class SessionManager(private val context: Context) {
         return prefs.getString("portalName", null)
     }
 
+    fun setPatientLogin(isLogged: Boolean) {
+        val editor = context.getSharedPreferences("KyuRX Data", Context.MODE_PRIVATE).edit()
+        editor.putBoolean("isLogged", isLogged)
+        editor.apply()
+    }
+
+    fun getPatientLogin(): Boolean {
+        val prefs = context.getSharedPreferences("KyuRX Data", Context.MODE_PRIVATE)
+        return prefs.getBoolean("isLogged", false)
+    }
+
+
 }

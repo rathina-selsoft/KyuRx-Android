@@ -14,6 +14,7 @@ import butterknife.OnClick
 import com.selsoft.kyurx.R
 import com.selsoft.kyurx.ui.main.PatientMain
 import com.selsoft.kyurx.utils.FontUtils
+import com.selsoft.kyurx.utils.SessionManager
 
 class PatientRegister : AppCompatActivity() {
 
@@ -71,6 +72,12 @@ class PatientRegister : AppCompatActivity() {
 
         setFontStyle()
         context = this
+
+        val sessionManager = SessionManager(context)
+        if (sessionManager.getPatientLogin()) {
+            context.startActivity(Intent(context, PatientMain::class.java))
+            finish()
+        }
     }
 
     @OnClick(R.id.btn_register)
@@ -96,6 +103,9 @@ class PatientRegister : AppCompatActivity() {
         registerBtn.setOnClickListener {
             if (serviceCB.isChecked) {
                 agreementAlertDialog.dismiss()
+
+                val sessionManager = SessionManager(context)
+                sessionManager.setPatientLogin(true)
                 context.startActivity(Intent(context, PatientMain::class.java))
                 finish()
             }
