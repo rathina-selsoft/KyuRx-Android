@@ -14,11 +14,16 @@ import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
+import android.view.View
+import android.widget.Button
+import android.widget.TextView
 import butterknife.BindView
 import butterknife.ButterKnife
 import com.selsoft.kyurx.R
 import com.selsoft.kyurx.ui.splash.Welcome
+import com.selsoft.kyurx.utils.FontUtils
 import com.selsoft.kyurx.utils.SessionManager
+import com.selsoft.kyurx.utils.Utils
 
 class PatientMain : AppCompatActivity() {
 
@@ -44,7 +49,6 @@ class PatientMain : AppCompatActivity() {
 
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_logout,
                 R.id.nav_medicine_status,
                 R.id.nav_pharmacy_preference
             ), drawerLayout
@@ -52,19 +56,16 @@ class PatientMain : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        navView.setNavigationItemSelectedListener {
-            when(it.itemId){
-                R.id.nav_logout -> {
-                    val sessionManager = SessionManager(this)
-                    sessionManager.clear()
-                    this.startActivity(Intent(this, Welcome::class.java))
-                    finish()
-                }
-            }
+        val navHeaderView: View = navView.getHeaderView(0)
+        val userEmail = navHeaderView.findViewById(R.id.email) as TextView
+        val logoutBtn = navHeaderView.findViewById(R.id.btn_logout) as Button
+        userEmail.typeface = FontUtils.getPrimaryBoldFont(this)
 
-            it.isChecked = true
-            drawerLayout.closeDrawers()
-            true
+        val sessionManager = SessionManager(this)
+        logoutBtn.setOnClickListener {
+            sessionManager.clear()
+            startActivity(Intent(this, Welcome::class.java))
+            finish()
         }
     }
 

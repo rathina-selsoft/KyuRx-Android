@@ -8,17 +8,8 @@
             android:id="@+id/nav_prescription"
             android:title="@string/manage_prescription" />
         <item
-            android:id="@+id/nav_doctor"
-            android:title="@string/manage_doctor" />
-        <item
             android:id="@+id/nav_patient"
             android:title="@string/manage_patient" />
-        <item
-            android:id="@+id/nav_user"
-            android:title="@string/manage_user" />
-        <item
-            android:id="@+id/nav_logout"
-            android:title="@string/logout" />
     </group>
 
 </menu>

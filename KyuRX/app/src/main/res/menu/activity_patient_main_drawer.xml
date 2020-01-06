@@ -10,9 +10,6 @@
         <item
             android:id="@+id/nav_pharmacy_preference"
             android:title="@string/pharmacy_preference" />
-        <item
-            android:id="@+id/nav_logout"
-            android:title="@string/logout" />
     </group>
 
 </menu>

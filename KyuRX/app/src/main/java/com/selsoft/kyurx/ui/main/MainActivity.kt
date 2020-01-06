@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
 import android.view.View
+import android.widget.Button
 import android.widget.TextView
 import butterknife.BindView
 import butterknife.ButterKnife
@@ -49,10 +50,7 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.nav_prescription,
-                R.id.nav_doctor,
-                R.id.nav_patient,
-                R.id.nav_user,
-                R.id.nav_logout
+                R.id.nav_patient
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -68,23 +66,15 @@ class MainActivity : AppCompatActivity() {
 
             val navHeaderView: View = navView.getHeaderView(0)
             val userEmail = navHeaderView.findViewById(R.id.email) as TextView
+            val logoutBtn = navHeaderView.findViewById(R.id.btn_logout) as Button
             userEmail.text = Utils.user!!.email
             userEmail.typeface = FontUtils.getPrimaryBoldFont(this)
-        }
 
-        navView.setNavigationItemSelectedListener {
-            when(it.itemId){
-                R.id.nav_logout -> {
-                    val sessionManager = SessionManager(this)
-                    sessionManager.clear()
-                    this.startActivity(Intent(this, Welcome::class.java))
-                    finish()
-                }
+            logoutBtn.setOnClickListener {
+                sessionManager.clear()
+                startActivity(Intent(this, Welcome::class.java))
+                finish()
             }
-
-            it.isChecked = true
-            drawerLayout.closeDrawers()
-            true
         }
     }
 
