@@ -18,10 +18,12 @@ import butterknife.BindView
 import butterknife.ButterKnife
 import com.selsoft.kyurx.R
 import com.selsoft.kyurx.ui.login.LoginActivity
+import com.selsoft.kyurx.ui.splash.Welcome
 import com.selsoft.kyurx.utils.FontUtils
 import com.selsoft.kyurx.utils.SessionManager
 import com.selsoft.kyurx.utils.Utils
 
+@Suppress("NAME_SHADOWING")
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -49,7 +51,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_prescription,
                 R.id.nav_doctor,
                 R.id.nav_patient,
-                R.id.nav_user
+                R.id.nav_user,
+                R.id.nav_logout
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -68,11 +71,24 @@ class MainActivity : AppCompatActivity() {
             userEmail.text = Utils.user!!.email
             userEmail.typeface = FontUtils.getPrimaryBoldFont(this)
         }
+
+        navView.setNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.nav_logout -> {
+                    val sessionManager = SessionManager(this)
+                    sessionManager.clear()
+                    this.startActivity(Intent(this, Welcome::class.java))
+                    finish()
+                }
+            }
+
+            it.isChecked = true
+            drawerLayout.closeDrawers()
+            true
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-//        menuInflater.inflate(R.menu.main, menu)
         return true
     }
 
@@ -80,4 +96,6 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+
+
 }

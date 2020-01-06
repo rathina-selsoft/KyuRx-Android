@@ -78,4 +78,6 @@
     <string name="check_status">Check Status</string>
     <string name="total_amount">Total Amount</string>
     <string name="confirm_">CONFIRM</string>
+    <string name="upload">Upload</string>
+    <string name="logout">Logout</string>
 </resources>

@@ -2,6 +2,8 @@ package com.selsoft.kyurx.ui.nearby_pharmacy
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -50,6 +52,22 @@ class NearByPharmacy : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        when (item.itemId) {
+            R.id.action_upload -> {
+                finish()
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()

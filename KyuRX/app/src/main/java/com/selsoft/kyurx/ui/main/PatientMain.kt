@@ -1,5 +1,6 @@
 package com.selsoft.kyurx.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
@@ -16,6 +17,8 @@ import android.view.Menu
 import butterknife.BindView
 import butterknife.ButterKnife
 import com.selsoft.kyurx.R
+import com.selsoft.kyurx.ui.splash.Welcome
+import com.selsoft.kyurx.utils.SessionManager
 
 class PatientMain : AppCompatActivity() {
 
@@ -41,18 +44,31 @@ class PatientMain : AppCompatActivity() {
 
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_dashboard,
+                R.id.nav_logout,
                 R.id.nav_medicine_status,
                 R.id.nav_pharmacy_preference
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        navView.setNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.nav_logout -> {
+                    val sessionManager = SessionManager(this)
+                    sessionManager.clear()
+                    this.startActivity(Intent(this, Welcome::class.java))
+                    finish()
+                }
+            }
+
+            it.isChecked = true
+            drawerLayout.closeDrawers()
+            true
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-//        menuInflater.inflate(R.menu.patient_main, menu)
         return true
     }
 
