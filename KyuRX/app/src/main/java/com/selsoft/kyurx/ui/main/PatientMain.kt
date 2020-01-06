@@ -13,31 +13,37 @@ import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
+import butterknife.BindView
+import butterknife.ButterKnife
 import com.selsoft.kyurx.R
 
 class PatientMain : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
+    @BindView(R.id.toolbar)
+    lateinit var toolbar: Toolbar
+
+    @BindView(R.id.drawer_layout)
+    lateinit var drawerLayout: DrawerLayout
+
+    @BindView(R.id.nav_view)
+    lateinit var navView: NavigationView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_patient_main)
-        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        ButterKnife.bind(this)
         setSupportActionBar(toolbar)
 
-        val fab: FloatingActionButton = findViewById(R.id.fab)
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
-        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
-        val navView: NavigationView = findViewById(R.id.nav_view)
+
         val navController = findNavController(R.id.nav_host_fragment)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_dashboard, R.id.nav_medicine_status, R.id.nav_pharmacy_preference
+                R.id.nav_dashboard,
+                R.id.nav_medicine_status,
+                R.id.nav_pharmacy_preference
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -46,7 +52,7 @@ class PatientMain : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.patient_main, menu)
+//        menuInflater.inflate(R.menu.patient_main, menu)
         return true
     }
 

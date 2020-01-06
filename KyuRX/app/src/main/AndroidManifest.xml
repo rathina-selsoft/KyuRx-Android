@@ -17,10 +17,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name="com.selsoft.kyurx.ui.nearby_pharmacy.NearByPharmacy"></activity>
         <activity
             android:name=".ui.main.PatientMain"
             android:label="@string/title_activity_patient_main"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.splash.Welcome"
             android:label="@string/app_name"
