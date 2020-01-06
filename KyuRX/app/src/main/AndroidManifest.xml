@@ -17,7 +17,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.selsoft.kyurx.ui.nearby_pharmacy.NearByPharmacy"></activity>
+        <activity android:name=".ui.medicine_details.MedicineDetails"></activity>
+        <activity android:name=".ui.nearby_pharmacy.NearByPharmacy" />
         <activity
             android:name=".ui.main.PatientMain"
             android:label="@string/title_activity_patient_main"

@@ -3,6 +3,7 @@ package com.selsoft.kyurx.ui.main.medicine_status
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
 import android.graphics.Typeface
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.selsoft.kyurx.R
 import com.selsoft.kyurx.model.Prescription
+import com.selsoft.kyurx.ui.medicine_details.MedicineDetails
 import com.selsoft.kyurx.utils.FontUtils
 import com.selsoft.kyurx.utils.Utils
 
@@ -35,13 +37,16 @@ class MedicineStatusAdapter(
 
         val prescription: Prescription = prescriptions[position]
         holder.prescriptionLY.tag = prescription
+        holder.prescriptionLY.setOnClickListener(rowTapped)
+
         holder.autoBit.tag = prescription
+        holder.autoBit.setOnClickListener(autoBitTapped)
+
         holder.medicineCount.text = "${prescription.medicines.size}"
         holder.orgName.text = prescription.orgName
         holder.drName.text =
             "DR. ${prescription.doctor?.firstName} ${prescription.doctor?.lastName}"
         holder.createdDate.text = prescription.createdDate
-        holder.autoBit.setOnClickListener(autoBitTapped)
 
         val primary: Typeface = FontUtils.getPrimaryFont(context)
         val boldFont: Typeface = FontUtils.getPrimaryBoldFont(context)
@@ -54,10 +59,16 @@ class MedicineStatusAdapter(
         holder.autoBitTxt.typeface = boldFont
     }
 
+    val rowTapped: View.OnClickListener = View.OnClickListener {
+        val prescription = it.tag as Prescription
+        context.startActivity(Intent(context, MedicineDetails::class.java))
+    }
+
     val autoBitTapped: View.OnClickListener = View.OnClickListener {
         val prescription = it.tag as Prescription
         val addPrescriptionDialog = AlertDialog.Builder(context)
-        val addPrescriptionView = LayoutInflater.from(context).inflate(R.layout.auto_bit_dialog, null)
+        val addPrescriptionView =
+            LayoutInflater.from(context).inflate(R.layout.auto_bit_dialog, null)
         addPrescriptionDialog.setView(addPrescriptionView)
         val prescriptionDialog = addPrescriptionDialog.create()
         prescriptionDialog.show()
