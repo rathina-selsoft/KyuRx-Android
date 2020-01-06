@@ -76,4 +76,6 @@
     <string name="confirm">Confirm</string>
     <string name="preference">Preference</string>
     <string name="check_status">Check Status</string>
+    <string name="total_amount">Total Amount</string>
+    <string name="confirm_">CONFIRM</string>
 </resources>

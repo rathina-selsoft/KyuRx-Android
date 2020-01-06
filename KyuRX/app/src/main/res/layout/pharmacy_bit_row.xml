@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/cost"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:gravity="center"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/h1"
+                android:textStyle="bold"
+                tools:ignore="SpUsage"
+                tools:text="$ 25.2" />
+
+            <TextView
+                android:id="@+id/txt_total_amount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/total_amount"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/_10sdp"
+                android:textStyle="bold"
+                tools:ignore="SpUsage" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/activity_margin_half"
+            android:layout_marginLeft="@dimen/activity_margin_half"
+            android:layout_weight="6.5"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/pharmacy_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textSize="@dimen/primary_text_size"
+                android:textStyle="bold"
+                tools:ignore="SpUsage"
+                tools:text="CVS Pharmacy" />
+
+            <TextView
+                android:id="@+id/available"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:singleLine="true"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/primary_sub_text_size"
+                android:textStyle="bold"
+                tools:ignore="SpUsage"
+                tools:text="Open 24 Hours" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/confirm"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:gravity="center|right"
+            android:orientation="vertical"
+            tools:ignore="RtlHardcoded,UseCompoundDrawables">
+
+            <ImageView
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_keyboard_arrow_right"
+                android:tint="@color/colorPrimaryDark"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/txt_confirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/confirm_"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/_10sdp"
+                android:textStyle="bold"
+                tools:ignore="SpUsage" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/activity_margin_half"
+        android:alpha="0.2"
+        android:background="@android:color/black" />
+
+
+</LinearLayout>

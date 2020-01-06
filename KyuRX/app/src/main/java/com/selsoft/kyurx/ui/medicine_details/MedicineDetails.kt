@@ -1,5 +1,6 @@
 package com.selsoft.kyurx.ui.medicine_details
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
@@ -7,9 +8,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import butterknife.BindView
 import butterknife.ButterKnife
+import butterknife.OnClick
 import com.selsoft.kyurx.R
 import com.selsoft.kyurx.model.Medicine
 import com.selsoft.kyurx.ui.add_prescription.MedicineAdapter
+import com.selsoft.kyurx.ui.bit_status.BitStatus
 import com.selsoft.kyurx.utils.FontUtils
 
 class MedicineDetails : AppCompatActivity() {
@@ -58,9 +61,14 @@ class MedicineDetails : AppCompatActivity() {
         medicineRV.adapter = medicineAdapter
     }
 
+    @OnClick(R.id.btn_check_status)
+    fun bitTapped() {
+        startActivity(Intent(this, BitStatus::class.java))
+    }
+
     private fun createStaticMedicines() {
 
-        for (x in 0..5){
+        for (x in 0..5) {
             val medicine = Medicine()
             medicine.name = "Dolo 650"
             medicine.quantity = 5
