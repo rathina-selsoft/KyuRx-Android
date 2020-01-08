@@ -58,6 +58,7 @@ class LoginActivity : AppCompatActivity() {
         progressDialog = Utils.getProgDialog(this)
         context = this
 
+        Utils.user = sessionManager.getUserDetails()
         if (Utils.user?.email != null) {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
