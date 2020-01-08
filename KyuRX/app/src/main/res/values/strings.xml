@@ -81,4 +81,5 @@
     <string name="upload">Upload</string>
     <string name="logout">Logout</string>
     <string name="description">Lowering the cost of prescription medicine</string>
+    <string name="patient_details">Patient Details:</string>
 </resources>

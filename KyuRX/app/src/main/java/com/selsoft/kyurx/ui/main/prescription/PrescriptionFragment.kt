@@ -21,9 +21,10 @@ import com.selsoft.kyurx.model.Medicine
 import com.selsoft.kyurx.model.Patient
 import com.selsoft.kyurx.model.Prescription
 import com.selsoft.kyurx.ui.add_prescription.AddPrescription
+import com.selsoft.kyurx.ui.prescription_details.PrescriptionDetails
 import com.selsoft.kyurx.utils.FontUtils
 
-class PrescriptionFragment : Fragment() {
+class PrescriptionFragment : Fragment(), View.OnClickListener {
 
     private lateinit var activity: MainActivity
 
@@ -51,6 +52,7 @@ class PrescriptionFragment : Fragment() {
         prescriptionRV.layoutManager =
             LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         prescriptionAdapter = PrescriptionAdapter(activity, prescriptions)
+        prescriptionAdapter.setClickListener(this)
         prescriptionRV.adapter = prescriptionAdapter
 
         return root
@@ -107,5 +109,9 @@ class PrescriptionFragment : Fragment() {
     override fun onAttach(context: Context?) {
         super.onAttach(context)
         activity = context as MainActivity
+    }
+
+    override fun onClick(adapterView: View?) {
+        activity.startActivity(Intent(activity, PrescriptionDetails::class.java))
     }
 }

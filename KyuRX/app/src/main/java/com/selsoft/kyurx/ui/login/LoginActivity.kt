@@ -57,6 +57,11 @@ class LoginActivity : AppCompatActivity() {
         sessionManager = SessionManager(this)
         progressDialog = Utils.getProgDialog(this)
         context = this
+
+        if (Utils.user?.email != null) {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }
     }
 
     @OnClick(R.id.btn_login)

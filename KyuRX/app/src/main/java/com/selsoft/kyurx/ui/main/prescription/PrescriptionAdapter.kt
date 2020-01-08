@@ -18,9 +18,16 @@ class PrescriptionAdapter(
     val prescriptions: MutableList<Prescription>
 ) : RecyclerView.Adapter<PrescriptionAdapter.PrescriptionViewHolder>() {
 
+    lateinit var onClickListener: View.OnClickListener
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PrescriptionViewHolder {
         val root = LayoutInflater.from(context).inflate(R.layout.row_prescription, parent, false)
+        root.setOnClickListener(onClickListener)
         return PrescriptionViewHolder(root)
+    }
+
+    fun setClickListener(onClickListener: View.OnClickListener) {
+        this.onClickListener = onClickListener
     }
 
     override fun getItemCount(): Int {
