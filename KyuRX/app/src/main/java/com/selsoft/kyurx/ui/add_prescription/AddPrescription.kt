@@ -80,6 +80,7 @@ class AddPrescription : AppCompatActivity(), View.OnClickListener {
 
         medicineRV.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        medicineRV.isNestedScrollingEnabled = false
 
         medicineAdapter = MedicineAdapter(this, medicines)
         medicineRV.adapter = medicineAdapter
@@ -196,40 +197,94 @@ class AddPrescription : AppCompatActivity(), View.OnClickListener {
 
     private fun getDoctors(): MutableList<*> {
         val doctors: MutableList<Doctor> = ArrayList<Doctor>()
-        for (x in 0..8) {
-            val doctor = Doctor()
-            if (x % 2 == 0) {
-                doctor.firstName = "Pushban"
-                doctor.lastName = "Rajaiyan"
-                doctor.emailId = "pushban@selsoftinc.com"
-                doctor.specialist = "ENT"
-            } else {
-                doctor.firstName = "Ramesh"
-                doctor.lastName = "Rajaiyan"
-                doctor.emailId = "ramesh@selsoftinc.com"
-                doctor.specialist = "Dentist"
-            }
-            doctors.add(doctor)
-        }
+
+        val doctor1 = Doctor()
+        doctor1.firstName = "Steven Godfrey"
+        doctor1.lastName = ", MD"
+        doctor1.emailId = "steven_godfrey@gmail.com"
+        doctor1.specialist = "Obstetrician /Gynecologist"
+        doctors.add(doctor1)
+
+        val doctor2 = Doctor()
+        doctor2.firstName = "Alma Gonzales"
+        doctor2.lastName = ", MD"
+        doctor2.emailId = "alma_gonzales@gmail.com"
+        doctor2.specialist = "Family Physician"
+        doctors.add(doctor2)
+
+        val doctor3 = Doctor()
+        doctor3.firstName = "Soe-Ni Nicholas Kong"
+        doctor3.lastName = ", MD"
+        doctor3.emailId = "nichalas_kong@gmail.com"
+        doctor3.specialist = "Cardiologist"
+        doctors.add(doctor3)
+
+        val doctor4 = Doctor()
+        doctor4.firstName = "Rita Kong"
+        doctor4.lastName = ", MD"
+        doctor4.emailId = "rita_kong@gmail.com"
+        doctor4.specialist = "Internal Medicine Physician"
+        doctors.add(doctor4)
+
+        val doctor5 = Doctor()
+        doctor5.firstName = "Russell Kuempel"
+        doctor5.lastName = ", MD"
+        doctor5.emailId = "russel_kuempel@gmail.com"
+        doctor5.specialist = "Ophthalmologist"
+        doctors.add(doctor5)
+
+        val doctor6 = Doctor()
+        doctor6.firstName = "Francis Mijares"
+        doctor6.lastName = ", MD"
+        doctor6.emailId = "francis_mijares@gmail.com"
+        doctor6.specialist = "Family Physician"
+        doctors.add(doctor6)
+
+        val doctor7 = Doctor()
+        doctor7.firstName = "Cephas Mujuruki"
+        doctor7.lastName = ", MD"
+        doctor7.emailId = "cephas_mujuruki@gmail.com"
+        doctor7.specialist = "Family Physician"
+        doctors.add(doctor7)
+
+
         return doctors
     }
 
 
     private fun getPatients(): MutableList<*> {
         val patients: MutableList<Patient> = ArrayList<Patient>()
-        for (x in 0..8) {
-            val patient = Patient()
-            if (x % 2 == 0) {
-                patient.firstName = "Rathina Sabapathi"
-                patient.lastName = "M"
-                patient.emailId = "rathina@selsoftinc.com"
-            } else {
-                patient.firstName = "Raghul"
-                patient.lastName = "Raj"
-                patient.emailId = "raghul@selsoftinc.com"
-            }
-            patients.add(patient)
-        }
+
+        val patient1 = Patient()
+        patient1.firstName = "Lucy Tan"
+        patient1.lastName = ""
+        patient1.emailId = "lucy_tan@gmail.com"
+        patients.add(patient1)
+
+        val patient2 = Patient()
+        patient2.firstName = "Rathina Sabapathi"
+        patient2.lastName = "M"
+        patient2.emailId = "rathina@selsoftinc.com"
+        patients.add(patient2)
+
+        val patient3 = Patient()
+        patient3.firstName = "Abirami Tanjavur"
+        patient3.lastName = ""
+        patient3.emailId = "nichalas_kong@gmail.com"
+        patients.add(patient3)
+
+        val patient4 = Patient()
+        patient4.firstName = "Rita Kong"
+        patient4.lastName = ", MD"
+        patient4.emailId = "rita_kong@gmail.com"
+        patients.add(patient4)
+
+        val patient5 = Patient()
+        patient5.firstName = "Russell Kuempel"
+        patient5.lastName = ", MD"
+        patient5.emailId = "russel_kuempel@gmail.com"
+        patients.add(patient5)
+
         return patients
     }
 

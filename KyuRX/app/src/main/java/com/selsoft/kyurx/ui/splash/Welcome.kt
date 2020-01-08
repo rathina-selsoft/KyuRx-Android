@@ -1,5 +1,6 @@
 package com.selsoft.kyurx.ui.splash
 
+import android.content.ClipDescription
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -16,11 +17,19 @@ import com.selsoft.kyurx.utils.SessionManager
 
 class Welcome : AppCompatActivity() {
 
-    @BindView(R.id.doctor_portal)
-    lateinit var doctorPortal: TextView
 
-    @BindView(R.id.patient_portal)
-    lateinit var patientPortal: TextView
+    @BindView(R.id.txt_welcome)
+    lateinit var welcomeTxt: TextView
+
+    @BindView(R.id.txt_description)
+    lateinit var descriptionTxt: TextView
+
+    @BindView(R.id.txt_doctor)
+    lateinit var doctorTxt: TextView
+
+    @BindView(R.id.txt_patient)
+    lateinit var patientTxt: TextView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,8 +37,10 @@ class Welcome : AppCompatActivity() {
         ButterKnife.bind(this)
 
 
-        doctorPortal.typeface = FontUtils.getPrimaryBoldFont(this)
-        patientPortal.typeface = FontUtils.getPrimaryBoldFont(this)
+        welcomeTxt.typeface = FontUtils.getPrimaryBoldFont(this)
+        descriptionTxt.typeface = FontUtils.getPrimaryBoldFont(this)
+        doctorTxt.typeface = FontUtils.getPrimaryBoldFont(this)
+        patientTxt.typeface = FontUtils.getPrimaryBoldFont(this)
 
         val sessionManager = SessionManager(this)
         val portalName = sessionManager.getPortalName()
@@ -45,7 +56,7 @@ class Welcome : AppCompatActivity() {
 
     }
 
-    @OnClick(R.id.doctor_portal)
+    @OnClick(R.id.ly_doctor_portal)
     fun doctorPortalTapped(view: View) {
         val sessionManager = SessionManager(this)
         sessionManager.selectedPortal("Doctor")
@@ -54,7 +65,7 @@ class Welcome : AppCompatActivity() {
         finish()
     }
 
-    @OnClick(R.id.patient_portal)
+    @OnClick(R.id.ly_patient_portal)
     fun patientPortalTapped(view: View) {
         val sessionManager = SessionManager(this)
         sessionManager.selectedPortal("Patient")

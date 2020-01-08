@@ -42,14 +42,44 @@ class NearByPharmacy : AppCompatActivity(), View.OnClickListener {
 
     private fun createStaticPharmacy() {
 
-        for (x in 0..5) {
-            val pharmacy = Pharmacy()
-            pharmacy.address = "19028 Lincoln Ave, Parker, CO 80134, USA."
-            pharmacy.name = "CVS Pharmacy"
-            pharmacy.phoneNumber = "9874563210, 9876541230"
-            pharmacy.isSelected = false
-            pharmacies.add(pharmacy)
-        }
+
+        val pharmacy1 = Pharmacy()
+        pharmacy1.address = "20744 TX-46 W, Spring Branch, TX 78070, United States"
+        pharmacy1.name = "Walgreens Pharmacy"
+        pharmacy1.phoneNumber = "+1 830-438-1123"
+        pharmacy1.isSelected = false
+        pharmacies.add(pharmacy1)
+
+
+        val pharmacy2 = Pharmacy()
+        pharmacy2.address = "333 Guadalupe St #3, Austin, TX 78701, United States"
+        pharmacy2.name = "Texas State Board of Pharmacy"
+        pharmacy2.phoneNumber = "+1 512-305-8000"
+        pharmacy2.isSelected = false
+        pharmacies.add(pharmacy2)
+
+
+        val pharmacy3 = Pharmacy()
+        pharmacy3.address = "5201 S Cooper St, Arlington, TX 76017, United States"
+        pharmacy3.name = "Geesons Pharmacy"
+        pharmacy3.phoneNumber = "+1 817-419-2688"
+        pharmacy3.isSelected = false
+        pharmacies.add(pharmacy3)
+
+
+        val pharmacy4 = Pharmacy()
+        pharmacy4.address = "12820 TX-105, Conroe, TX 77304, United States"
+        pharmacy4.name = "Richies Specialty Pharmacy"
+        pharmacy4.phoneNumber = "+1 936-588-6337"
+        pharmacy4.isSelected = false
+        pharmacies.add(pharmacy4)
+
+        val pharmacy5 = Pharmacy()
+        pharmacy5.address = "3541 Palmer Hwy, Texas City, TX 77590, United States"
+        pharmacy5.name = "Kroger Pharmacy"
+        pharmacy5.phoneNumber = "+1 409-945-3436"
+        pharmacy5.isSelected = false
+        pharmacies.add(pharmacy5)
     }
 
 

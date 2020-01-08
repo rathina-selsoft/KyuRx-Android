@@ -46,20 +46,20 @@ class MedicineStatus : Fragment() {
 
     private fun createStaticPrescriptions() {
         val patient = Patient()
-        patient.firstName = "Rathina Sabapathi"
+        patient.firstName = "Alma Gonzales"
         patient.lastName = "M"
 
         val patient2 = Patient()
-        patient2.firstName = "Raghul"
-        patient2.lastName = "Raj"
+        patient2.firstName = "Jennifer Cabler"
+        patient2.lastName = ""
 
         val doctor = Doctor()
-        doctor.firstName = "Ramesh"
-        doctor.lastName = "Rasaiyan"
+        doctor.firstName = "Michael Agyepong"
+        doctor.lastName = ""
 
         val doctor2 = Doctor()
-        doctor2.firstName = "Pushban"
-        doctor2.lastName = "Rasaiyan"
+        doctor2.firstName = "Benny L. Barnhart"
+        doctor2.lastName = ""
 
 
         for (x in 0..5) {
@@ -69,7 +69,7 @@ class MedicineStatus : Fragment() {
                 prescription.patient = patient
                 prescription.medicines.add(Medicine())
                 prescription.medicines.add(Medicine())
-                prescription.orgName = "Saba Clinic"
+                prescription.orgName = "UT Health East Texas Cancer Center"
             } else {
                 prescription.doctor = doctor2
                 prescription.patient = patient2
@@ -77,7 +77,7 @@ class MedicineStatus : Fragment() {
                 prescription.medicines.add(Medicine())
                 prescription.medicines.add(Medicine())
                 prescription.medicines.add(Medicine())
-                prescription.orgName = "Raghul Clinic"
+                prescription.orgName = "Clinics of North Texas"
             }
             prescription.createdDate = "Dec 22 at 11:00 AM"
             prescriptions.add(prescription)

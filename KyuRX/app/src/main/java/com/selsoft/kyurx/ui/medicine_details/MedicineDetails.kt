@@ -55,6 +55,7 @@ class MedicineDetails : AppCompatActivity() {
 
         medicineRV.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        medicineRV.isNestedScrollingEnabled = false
 
         createStaticMedicines()
         medicineAdapter = MedicineAdapter(this, medicines)
@@ -68,14 +69,48 @@ class MedicineDetails : AppCompatActivity() {
 
     private fun createStaticMedicines() {
 
-        for (x in 0..5) {
-            val medicine = Medicine()
-            medicine.name = "Dolo 650"
-            medicine.quantity = 5
-            medicine.dosageInstruction = "Dosage Instruction"
 
-            medicines.add(medicine)
-        }
+        val medicine1 = Medicine()
+        medicine1.name = "Paracetamol"
+        medicine1.quantity = 10
+        medicine1.dosageInstruction =
+            "There are many brands and forms of paracetamol available and not all brands are listed on this leaflet."
+        medicines.add(medicine1)
+
+        val medicine2 = Medicine()
+        medicine2.name = "Acetaminophen"
+        medicine2.quantity = 8
+        medicine2.dosageInstruction =
+            "You should not use this medication if you have severe liver disease."
+        medicines.add(medicine2)
+
+        val medicine3 = Medicine()
+        medicine3.name = "Tylenol"
+        medicine3.quantity = 5
+        medicine3.dosageInstruction =
+            "Avoid also using other medicines that contain acetaminophen (sometimes abbreviated as APAP), or you could have a fatal overdose."
+        medicines.add(medicine3)
+
+        val medicine4 = Medicine()
+        medicine4.name = "ibuprofen"
+        medicine4.quantity = 3
+        medicine4.dosageInstruction = "An ibuprofen overdose can damage your stomach or intestines."
+        medicines.add(medicine1)
+
+        val medicine5 = Medicine()
+        medicine5.name = "Advil"
+        medicine5.quantity = 7
+        medicine5.dosageInstruction =
+            "Taking Advil during the last 3 months of pregnancy may harm the unborn baby."
+        medicines.add(medicine5)
+
+        val medicine6 = Medicine()
+        medicine6.name = "Bayer Aspirin"
+        medicine6.quantity = 9
+        medicine6.dosageInstruction =
+            "If you have any of these health problems: Asthma, bleeding problems, nose polyps, or nose irritation."
+        medicines.add(medicine6)
+
 
     }
 

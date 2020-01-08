@@ -70,6 +70,7 @@ class RegisterActivity : AppCompatActivity() {
 
         doctorRV.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        doctorRV.isNestedScrollingEnabled = false
 
         doctorAdapter = DoctorAdapter(this, doctors)
         doctorRV.adapter = doctorAdapter

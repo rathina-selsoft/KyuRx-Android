@@ -68,7 +68,7 @@
                     android:id="@+id/dr_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Dr. Rathina Sabapathi"
+                    android:text="Dr. Russell Kuempel, MD"
                     android:textColor="@color/colorPrimary"
                     android:textSize="@dimen/primary_text_size"
                     android:textStyle="bold"
@@ -78,7 +78,7 @@
                     android:id="@+id/dr_specialist"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ENT"
+                    android:text="Ophthalmologist"
                     android:textColor="@color/primary_text"
                     android:textSize="@dimen/primary_sub_text_size"
                     tools:ignore="HardcodedText,SpUsage" />
