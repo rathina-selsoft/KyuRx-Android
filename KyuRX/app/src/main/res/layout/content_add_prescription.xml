@@ -147,7 +147,7 @@
                     android:id="@+id/patient_email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="09/08/1994"
+                    android:text="Email"
                     android:textColor="@color/primary_text"
                     android:textSize="@dimen/primary_sub_text_size"
                     tools:ignore="SpUsage" />
